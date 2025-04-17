@@ -20,5 +20,17 @@ class TestNumberConverter(unittest.TestCase):
         
     def test_not_multiple_of_ten_under_100(self):
         self.assertEqual("twenty-four", NumberConverter().to_words(24))    
-        self.assertEqual("ninety-nine", NumberConverter().to_words(99))    
+        self.assertEqual("ninety-nine", NumberConverter().to_words(99))
+    
+    def test_hundreds(self):
+        self.assertEqual("one-hundred", NumberConverter().to_words(100))
+        self.assertEqual("one-hundred and twenty-four", NumberConverter().to_words(124))    
+    
+    def test_thouands(self):
+        self.assertEqual("one thousand and three-hundred", NumberConverter().to_words(1_300))
+        self.assertEqual("nine thousand and ninety-nine", NumberConverter().to_words(9_099)) 
+
+    def test_millions(self):
+        self.assertEqual("three million and twenty", NumberConverter().to_words(3_000_020))
+        self.assertEqual("one-hundred million and three", NumberConverter().to_words(100_000_003)) 
         
